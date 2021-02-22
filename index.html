@@ -10,15 +10,15 @@
 <body>
   <script type="text/javascript">
     function shakeEventDidOccur() {
-      alert('Shake !');
+      alert('shake detected!');
     }
 
     function initShake() {
-      var shakeEvent = new Shake({
+      var myShakeEvent = new Shake({
         threshold: 15,
-        timeout: 1500
+        timeout: 1000
       });
-      shakeEvent.start();
+      myShakeEvent.start();
       window.addEventListener('shake', shakeEventDidOccur, false);
     }
 
