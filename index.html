@@ -10,8 +10,8 @@
   <script type="text/javascript">
     // <script type="text/javascript" src="shake.js">
   function requestOrientationPermission() {
-    //DeviceOrientationEvent.requestPermission()
-    DeviceMotionEvent.requestPermission()
+    DeviceOrientationEvent.requestPermission()
+    //DeviceMotionEvent.requestPermission()
       .then(response => {
         if (response == 'granted') {
           // window.addEventListener('deviceorientation', (e) => {
