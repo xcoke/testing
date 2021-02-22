@@ -3,22 +3,22 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Xcoke's Testing</title>
+  <title>Testing</title>
   <script type="text/javascript" src="shake.js"></script>
 </head>
 
 <body>
   <script type="text/javascript">
     function shakeEventDidOccur() {
-      alert('Shake!');
+      alert('Shake !');
     }
 
     function initShake() {
-      var myShakeEvent = new Shake({
+      var shakeEvent = new Shake({
         threshold: 15,
         timeout: 1500
       });
-      myShakeEvent.start();
+      shakeEvent.start();
       window.addEventListener('shake', shakeEventDidOccur, false);
     }
 
