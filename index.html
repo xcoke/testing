@@ -9,13 +9,15 @@
 <body>
   <script type="text/javascript" src="shake.js">
   function requestOrientationPermission() {
-    DeviceOrientationEvent.requestPermission()
+    //DeviceOrientationEvent.requestPermission()
+    DeviceMotionEvent.requestPermission()
       .then(response => {
         if (response == 'granted') {
           // window.addEventListener('deviceorientation', (e) => {
           //     // do something with e
           // })
 
+          alert("granted");
           // listen to shake event
           var shakeEvent = new Shake({
             threshold: 15
@@ -26,14 +28,16 @@
           }, false);
 
           //stop listening
-          function stopShake() {
-            shakeEvent.stop();
-          }
+          // function stopShake() {
+          //   shakeEvent.stop();
+          // }
 
           //check if shake is supported or not.
           if (!("ondevicemotion" in window)) {
             alert("Not Supported");
           }
+        }else{
+          alert("not granted");
         }
       })
       .catch(console.error)
