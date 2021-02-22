@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
-  <title>Xcoke's Testing Site</title>
+  <title>Xcoke's Testing</title>
   <script type="text/javascript" src="shake.js"></script>
 </head>
-
 <body>
-  <!-- <script type="text/javascript" src="shake.js"> -->
-
   <script type="text/javascript">
     function requestOrientationPermission() {
       DeviceOrientationEvent.requestPermission()
-        //DeviceMotionEvent.requestPermission()
         .then(response => {
           if (response == 'granted') {
-            // window.addEventListener('deviceorientation', (e) => {
-            //     // do something with e
-            // })
-
-            alert("granted");
             //create a new instance of shake.js.
             var myShakeEvent = new Shake({
-              threshold: 15
+              threshold: 15,
+              timeout: 1500 
             });
 
             // start listening to device motion
@@ -34,30 +25,27 @@
 
             //shake event callback
             function shakeEventDidOccur() {
-
-              //put your own code here etc.
               alert('Shake!');
             }
 
             //stop listening
-            // function stopShake() {
-            //   shakeEvent.stop();
-            // }
+            function stopShake() {
+              shakeEvent.stop();
+            }
 
             //check if shake is supported or not.
             if (!("ondevicemotion" in window)) {
               alert("Not Supported");
             }
           } else {
-            alert("not granted");
+            alert("no permission");
           }
         })
         .catch(console.error)
     }
   </script>
 
-  <button onclick='requestOrientationPermission();'>Request orientation permission</button>
-
+  <button onclick='requestOrientationPermission();'>Request permission</button>
 </body>
 
 </html>
