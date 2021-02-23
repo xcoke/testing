@@ -35,11 +35,11 @@
     }
 
     window.onload = function() {
-      if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function')
+      //if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function')
         requestPermission();
-      } else {
-        initShake();
-      }
+      // } else {
+      //   initShake();
+      // }
     };
   </script>
 </body>
