@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -35,7 +35,7 @@
     }
 
     window.onload = function() {
-      if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function')
         requestPermission();
       } else {
         initShake();
