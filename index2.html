@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Testing</title>
+  <script type="text/javascript" src="shake.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function shakeEventDidOccur() {
+      alert('shake detected!');
+    }
+
+    function initShake() {
+      var myShakeEvent = new Shake({
+        threshold: 15,
+        timeout: 1000
+      });
+      myShakeEvent.start();
+      window.addEventListener('shake', shakeEventDidOccur, false);
+    }
+
+    function requestPermission() {
+      DeviceOrientationEvent.requestPermission()
+        .then(response => {
+          if (response == 'granted') {
+            initShake();
+          } else {
+            alert("no permission");
+          }
+        })
+        .catch(console.error)
+    }
+
+    window.onload = function() {
+      if (typeof DeviceMotionEvent.requestPermission === 'function') {
+        requestPermission();
+      } else {
+        initShake();
+      }
+    };
+  </script>
+</body>
+
+</html>
